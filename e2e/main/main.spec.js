@@ -84,4 +84,47 @@ describe('Calculator', function() {
     page.keys.reverse.click();
     expect(page.screen.getText()).toBe('-3');
   });
+
+  describe('when using equals `=`', function() {
+    it('should show `15` when `5 + 5 = =` is keyed in', function() {
+      page.keys.five.click();
+      page.keys.plus.click();
+      page.keys.five.click();
+      page.keys.equals.click();
+      page.keys.equals.click();
+      expect(page.screen.getText()).toBe('15');
+    });
+
+    it('should show `5` when `5 + 5 = CLEAR =` is keyed in', function() {
+      page.keys.five.click();
+      page.keys.plus.click();
+      page.keys.five.click();
+      page.keys.equals.click();
+      page.keys.clear.click();
+      page.keys.equals.click();
+      expect(page.screen.getText()).toBe('5');
+    });
+
+    it('should show `0` when `5 + 5 = CLEAR CLEAR =` is keyed in', function() {
+      page.keys.five.click();
+      page.keys.plus.click();
+      page.keys.five.click();
+      page.keys.equals.click();
+      page.keys.clear.click();
+      page.keys.clear.click();
+      page.keys.equals.click();
+      expect(page.screen.getText()).toBe('0');
+    });
+
+    it('after using `=` typing keys should start a new value', function() {
+      page.keys.five.click();
+      page.keys.plus.click();
+      page.keys.five.click();
+      page.keys.equals.click();
+      page.keys.three.click();
+      page.keys.eight.click();
+      expect(page.screen.getText()).toBe('38');
+    });
+  });
+
 });

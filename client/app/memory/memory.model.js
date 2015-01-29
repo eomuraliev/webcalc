@@ -42,11 +42,14 @@ angular.module('CalculatorApp').factory('memory', function() {
     this.error = false;
   };
 
-  Memory.prototype.clearAll = function() {
+  Memory.prototype.clearAll = function(hard) {
     this.currentValue = '0';
     this.error = false;
     this.storedValue = undefined;
     this.operation = undefined;
+    if (hard === true) {
+      this.lastEqualsAction = undefined;
+    }
   };
 
   return new Memory();

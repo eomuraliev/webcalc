@@ -100,7 +100,7 @@ angular.module('CalculatorApp').factory('interpreter', function(memory, $http) {
       }
       switch (operation) {
         case 'all_clear':
-          memory.clearAll();
+          memory.clearAll(true);
           break;
 
         case 'clear':
@@ -118,10 +118,21 @@ angular.module('CalculatorApp').factory('interpreter', function(memory, $http) {
 
         case 'equals':
           if (memory.hasOperation() && memory.hasStoredValue()) {
-            performBinaryOperationInMemory(function() {
-              justUsedEquals = true;
-            });
+            memory.lastEqualsAction = {
+              value: memory.currentValue,
+              operation: memory.operation
+            };
+            performBinaryOperationInMemory();
           }
+          else if (memory.lastEqualsAction !== undefined &&
+                   typeof memory.lastEqualsAction.value === 'string' &&
+                   typeof memory.lastEqualsAction.operation === 'string') {
+            memory.setStoredValue(memory.currentValue);
+            memory.setCurrentValue(memory.lastEqualsAction.value);
+            memory.setOperation(memory.lastEqualsAction.operation);
+            performBinaryOperationInMemory();
+          }
+          justUsedEquals = true;
           break;
 
         case 'add':
