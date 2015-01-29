@@ -1,0 +1,30 @@
+<div class="keyboard" ng-class="{ locked: interpreter.isLocked() }">
+  <key type="operation" value="divide" class="common_op">&#247;</key>
+  <key type="operation" value="percentage" class="special_op">&#37;</key>
+  <key type="operation" value="reverse_sign" class="special_op">&#177;</key>
+  <key type="operation"
+       value="{{ showAllClear ? 'all_clear' : 'clear'}}"
+       class="special_op clear"
+  >
+    {{ showAllClear ? 'AC' : 'C' }}
+  </key>
+
+  <key type="operation" value="multiply" class="common_op">&#10005;</key>
+  <key type="entry" value="9">9</key>
+  <key type="entry" value="8">8</key>
+  <key type="entry" value="7">7</key>
+
+  <key type="operation" value="subtract" class="common_op">&minus;</key>
+  <key type="entry" value="6">6</key>
+  <key type="entry" value="5">5</key>
+  <key type="entry" value="4">4</key>
+
+  <key type="operation" value="add" class="common_op">&#43;</key>
+  <key type="entry" value="3">3</key>
+  <key type="entry" value="2">2</key>
+  <key type="entry" value="1">1</key>
+
+  <key type="operation" value="equals" class="common_op">&#61;</key>
+  <key type="entry" value=".">.</key>
+  <key type="entry" value="0" class="double">0</key>
+</div>

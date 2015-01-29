@@ -1,0 +1,44 @@
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <base href="/">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    <!-- build:css({.tmp,client}) app/app.css -->
+    <link rel="stylesheet" href="app/app.css">
+      <!-- injector:css -->
+      <link rel="stylesheet" href="app/app.css">
+      <!-- endinjector -->
+    <!-- endbuild -->
+  </head>
+  <body>
+  <div class="root" ng-app="CalculatorApp">
+    <calculator></calculator>
+  </div>
+
+    <!-- build:js({client,node_modules}) app/vendor.js -->
+      <!-- bower:js -->
+      <script src="bower_components/jquery/dist/jquery.js"></script>
+      <script src="bower_components/angular/angular.js"></script>
+      <!-- endbower -->
+    <!-- endbuild -->
+
+        <!-- build:js({.tmp,client}) app/app.js -->
+        <script src="app/app.js"></script>
+          <!-- injector:js -->
+          <script src="app/CalculatorApp.js"></script>
+          <script src="app/interpreter/interpreter.service.js"></script>
+          <script src="app/keyboard/key.directive.js"></script>
+          <script src="app/keyboard/keyboard.directive.js"></script>
+          <script src="app/memory/memory.model.js"></script>
+          <script src="app/screen/screen.directive.js"></script>
+          <!-- endinjector -->
+        <!-- endbuild -->
+</body>
+</html>
