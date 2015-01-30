@@ -4,7 +4,7 @@ angular.module('CalculatorApp').factory('memory', function() {
   var MAX_VALUE_LENGTH = 9;
 
   function Memory() {
-    this.clearAll();
+    this.clearAll(true);
   }
 
   Memory.prototype.setCurrentValue = function(value) {
@@ -13,7 +13,12 @@ angular.module('CalculatorApp').factory('memory', function() {
       console.log('assigned value to: ' + value);
     }
     else {
-      this.currentValue = value.substr(0, MAX_VALUE_LENGTH);
+      if (value.indexOf('.') >= 0) {
+        this.currentValue = value.substr(0, MAX_VALUE_LENGTH + 1);
+      }
+      else {
+        this.currentValue = value.substr(0, MAX_VALUE_LENGTH);
+      }
     }
   };
 
