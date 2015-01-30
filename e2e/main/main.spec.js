@@ -25,6 +25,18 @@ describe('Calculator', function() {
     expect(page.screen.getText()).toBe('10');
   });
 
+  it('should show `5` when `2.5 + 2.5 =` is keyed in', function() {
+    page.keys.two.click();
+    page.keys.point.click();
+    page.keys.five.click();
+    page.keys.plus.click();
+    page.keys.two.click();
+    page.keys.point.click();
+    page.keys.five.click();
+    page.keys.equals.click();
+    expect(page.screen.getText()).toBe('5');
+  });
+
   it('should show `25` when `5 * 5 =` is keyed in', function() {
     page.keys.five.click();
     page.keys.times.click();
@@ -33,14 +45,25 @@ describe('Calculator', function() {
     expect(page.screen.getText()).toBe('25');
   });
 
-  it('should show `8.3333333` when `5 * 5 / 3 =` is keyed in', function() {
+  it('should show `8.33333333` when `5 * 5 / 3 =` is keyed in', function() {
     page.keys.five.click();
     page.keys.times.click();
     page.keys.five.click();
     page.keys.divide.click();
     page.keys.three.click();
     page.keys.equals.click();
-    expect(page.screen.getText()).toBe('8.3333333');
+    expect(page.screen.getText()).toBe('8.33333333');
+  });
+
+  it('should show `-8.33333333` when `5 * 5 / -3 =` is keyed in', function() {
+    page.keys.five.click();
+    page.keys.times.click();
+    page.keys.five.click();
+    page.keys.divide.click();
+    page.keys.reverse.click();
+    page.keys.three.click();
+    page.keys.equals.click();
+    expect(page.screen.getText()).toBe('-8.33333333');
   });
 
   it('should show `0.75` when `5 * 5 + % 3` is keyed in', function() {

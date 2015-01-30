@@ -8,17 +8,19 @@ angular.module('CalculatorApp').factory('memory', function() {
   }
 
   Memory.prototype.setCurrentValue = function(value) {
+    var maxOffset = 0;
     if (valueLength(value) <= MAX_VALUE_LENGTH ) {
       this.currentValue = value;
       console.log('assigned value to: ' + value);
     }
     else {
       if (value.indexOf('.') >= 0) {
-        this.currentValue = value.substr(0, MAX_VALUE_LENGTH + 1);
+        maxOffset +=1;
       }
-      else {
-        this.currentValue = value.substr(0, MAX_VALUE_LENGTH);
+      if (value.indexOf('-') === 0) {
+        maxOffset +=1;
       }
+      this.currentValue = value.substr(0, MAX_VALUE_LENGTH + maxOffset);
     }
   };
 

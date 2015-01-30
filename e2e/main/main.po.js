@@ -19,6 +19,7 @@ var MainPage = function() {
     eight: this.calculator.element(by.css('key[value="8"]')),
     nine: this.calculator.element(by.css('key[value="9"]')),
     zero: this.calculator.element(by.css('key[value="0"]')),
+    point: this.calculator.element(by.css('key[value="."]')),
     plus: this.calculator.element(by.css('key[value="add"]')),
     minus: this.calculator.element(by.css('key[value="subtract"]')),
     times: this.calculator.element(by.css('key[value="multiply"]')),

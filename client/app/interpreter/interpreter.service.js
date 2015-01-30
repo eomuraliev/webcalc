@@ -78,7 +78,12 @@ angular.module('CalculatorApp').factory('interpreter', function(memory, $http) {
       }
       switch (memory.currentValue) {
         case '0':
-          memory.setCurrentValue(value);
+          if (value === '.') {
+            memory.setCurrentValue(memory.currentValue + value);
+          }
+          else {
+            memory.setCurrentValue(value);
+          }
           break;
         default:
           memory.setCurrentValue(memory.currentValue + value);

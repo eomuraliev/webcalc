@@ -1,3 +1,5 @@
+'use strict';
+
 describe('memory model', function() {
   var memory,
       $injector;
