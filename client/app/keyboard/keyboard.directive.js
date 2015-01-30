@@ -12,7 +12,6 @@ angular.module('CalculatorApp').directive('keyboard', function() {
     },
     link: function(scope, element) {
       element.on('click', 'key', function(event) {
-        console.log(event.target);
         if (scope.interpreter.isLocked()) {
           return;
         }

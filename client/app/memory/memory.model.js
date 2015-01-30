@@ -11,7 +11,6 @@ angular.module('CalculatorApp').factory('memory', function() {
     var maxOffset = 0;
     if (valueLength(value) <= MAX_VALUE_LENGTH ) {
       this.currentValue = value;
-      console.log('assigned value to: ' + value);
     }
     else {
       if (value.indexOf('.') >= 0) {

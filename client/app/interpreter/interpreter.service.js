@@ -61,9 +61,7 @@ angular.module('CalculatorApp').factory('interpreter', function(memory, $http) {
       return locked;
     },
     entry: function(value) {
-      console.log('entry: ' + value);
       if (this.isLocked() || memory.error) {
-        console.log('interpreter is locked or there is an error. ignoring entry');
         return;
       }
       // if someone had just used the equals op, and starts typing numbers we clear the screen
@@ -90,14 +88,12 @@ angular.module('CalculatorApp').factory('interpreter', function(memory, $http) {
       }
     },
     operation: function(operation) {
-      console.log('operation: ' + operation);
       if ( this.isLocked() ||
            (memory.error &&
             operation !== 'clear' &&
             operation !== 'all_clear'
            )
          ) {
-        console.log('interpreter is locked or there is an error. ignoring operation');
         return;
       }
       if (justUsedEquals) {
