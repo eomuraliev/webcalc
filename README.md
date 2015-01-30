@@ -11,5 +11,8 @@ To set up:
 To launch the server and open a browser window navigating to the app
 - grunt serve
 
-To run all tests:
+To run all unit tests:
 - grunt test
+
+To run integration/end-to-end tests:
+- grunt test:e2e
