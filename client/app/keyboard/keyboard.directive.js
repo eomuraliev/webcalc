@@ -1,12 +1,12 @@
 'use strict';
 
-angular.module('CalculatorApp').directive('keyboard', function() {
+angular.module('CalculatorApp').directive('keyboard',
+['interpreter', function(interpreter) {
   return {
     restrict: 'E',
-    scope: {
-    },
+    scope: {},
     templateUrl: 'app/keyboard/keyboard.template.html',
-    controller: function($scope, interpreter) {
+    controller: function($scope) {
       $scope.interpreter = interpreter;
       $scope.showAllClear = true;
     },
@@ -15,7 +15,9 @@ angular.module('CalculatorApp').directive('keyboard', function() {
         if (scope.interpreter.isLocked()) {
           return;
         }
+
         var keyValue = event.target.getAttribute('value');
+
         scope.$apply(function() {
           if (event.target.getAttribute('type') === 'entry') {
             scope.interpreter.entry(keyValue);
@@ -27,4 +29,4 @@ angular.module('CalculatorApp').directive('keyboard', function() {
       });
     }
   };
-});
+}]);

@@ -1,6 +1,7 @@
 'use strict';
 
-angular.module('CalculatorApp').factory('interpreter', function(memory, $http) {
+angular.module('CalculatorApp').factory('interpreter',
+['memory', '$http', function(memory, $http) {
   var locked = false,
       justUsedEquals = false;
 
@@ -158,4 +159,4 @@ angular.module('CalculatorApp').factory('interpreter', function(memory, $http) {
 
     }
   };
-});
+}]);

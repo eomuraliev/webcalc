@@ -1,16 +1,16 @@
 'use strict';
 
-angular.module('CalculatorApp').directive('screen', function() {
+angular.module('CalculatorApp').directive('screen',
+['memory', function(memory) {
   return {
     restrict: 'E',
-    require: '^calculator',
     templateUrl: 'app/screen/screen.template.html',
     scope: {},
-    controller: function($scope, memory) {
+    controller: function($scope) {
       $scope.memory = memory;
       $scope.format = function(value) {
         return value;
       };
     }
   };
-});
+}]);
