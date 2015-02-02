@@ -4,15 +4,17 @@ Requirements:
 
 To set up:
 - clone this repo
-- npm install
-- bower install
-- npm run update-webdriver
+- `sudo npm install -g bower grunt-cli`
+- cd into project
+- `npm install`
+- `bower install`
+- `npm run update-webdriver`
 
 To launch the server and open a browser window navigating to the app
-- grunt serve
+- `grunt serve`
 
 To run all unit tests:
-- grunt test
+- `grunt test`
 
 To run integration/end-to-end tests:
-- grunt test:e2e
+- `grunt test:e2e`
