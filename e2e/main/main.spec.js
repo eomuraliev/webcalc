@@ -150,4 +150,17 @@ describe('Calculator', function() {
     });
   });
 
+  describe('should only allow one point', function() {
+    it('`5 . 5 . 5 . 5` should result in `5.555` and not an ip address', function() {
+      page.keys.five.click();
+      page.keys.point.click();
+      page.keys.five.click();
+      page.keys.point.click();
+      page.keys.five.click();
+      page.keys.point.click();
+      page.keys.five.click();
+      expect(page.screen.getText()).toBe('5.555');
+    });
+  });
+
 });

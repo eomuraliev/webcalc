@@ -85,7 +85,9 @@ angular.module('CalculatorApp').factory('interpreter',
           }
           break;
         default:
-          memory.setCurrentValue(memory.currentValue + value);
+          if (value !== '.' || memory.currentValue.indexOf('.') < 0) {
+            memory.setCurrentValue(memory.currentValue + value);
+          }
       }
     },
     operation: function(operation) {

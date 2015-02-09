@@ -40,6 +40,12 @@ describe('interpreter service', function() {
       expect(memory.setCurrentValue).toHaveBeenCalledWith('0.');
     });
 
+    it('should not allow more than one dot', function() {
+      memory.setCurrentValue('5.5');
+      spyOn(memory, 'setCurrentValue');
+      interpreter.entry('.');
+      expect(memory.setCurrentValue).not.toHaveBeenCalledWith('5.5.');
+    });
   });
 
   describe('when receiving operations in a normal state', function() {
